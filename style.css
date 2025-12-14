@@ -1,0 +1,907 @@
+/* ==================================== */
+/* 0. VARIABLES Y RESET BÁSICO */
+/* ==================================== */
+:root {
+    /* Paleta de Colores Dark Theme (Terminal/SOC Inspired) */
+    --color-primary-dark: #0a0e17; /* Fondo principal (azul oscuro profundo) */
+    --color-secondary-dark: #111827; /* Fondo secundario (gris azulado oscuro) */
+    --color-accent: #00ff88; /* Verde ciberseguridad (principal) */
+    --color-accent-blue: #3b82f6; /* Azul tecnológico (secundario) */
+    --color-accent-red: #ef4444; /* Rojo para Red Team/Advertencia */
+    --color-accent-amber: #f59e0b; /* Ámbar para advertencias/alertas/jobs */
+    --color-text-light: #f3f4f6; /* Texto principal (gris claro) */
+    --color-text-secondary: #9ca3af; /* Texto secundario (gris) */
+
+    /* Fuentes */
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+
+    /* Espaciado */
+    --spacing-lg: 4rem;
+    --spacing-md: 2rem;
+    --spacing-sm: 1rem;
+
+    /* Transición */
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--color-accent-blue);
+}
+
+/* Contenedor centralizado */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.section-padding {
+    padding: var(--spacing-lg) 0;
+}
+
+.section-alt-bg {
+    background-color: var(--color-secondary-dark);
+    /* Borde sutil de terminal */
+    border-top: 2px solid rgba(0, 255, 136, 0.1);
+    border-bottom: 2px solid rgba(0, 255, 136, 0.1);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-accent);
+    text-align: center;
+    font-weight: 700;
+}
+
+.section-title i {
+    margin-right: 0.5rem;
+}
+
+/* ==================================== */
+/* 1. HEADER & NAV BAR */
+/* ==================================== */
+.main-header {
+    background-color: rgba(10, 14, 23, 0.95); /* Opacidad para efecto "sticky" */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: var(--spacing-sm) 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+}
+
+.icon-accent {
+    color: var(--color-accent);
+}
+
+.main-nav a {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-left: var(--spacing-md);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active-link {
+    color: var(--color-accent);
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-speed);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active-link::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==================================== */
+/* 2. HERO SECTION */
+/* ==================================== */
+.hero-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding-top: 4rem; /* Compensar el header fijo */
+    border-bottom: 5px solid var(--color-accent);
+    background-image: radial-gradient(circle at top left, var(--color-secondary-dark) 0%, var(--color-primary-dark) 70%);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.greeting {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    color: var(--color-text-light);
+}
+
+.hero-text h2.typewriter {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    color: var(--color-accent-blue);
+    min-height: 2.5rem; /* Asegurar espacio para el efecto */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid var(--color-accent-blue); /* Cursor */
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    margin: 1.5rem 0;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-accent);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #00c76b;
+    color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.cta-button i {
+    margin-left: 0.75rem;
+    transition: margin-left var(--transition-speed);
+}
+
+.cta-button:hover i {
+    margin-left: 1rem;
+}
+
+.hero-image-placeholder {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid var(--color-accent-blue);
+    border-radius: 50%;
+    background-color: var(--color-secondary-dark);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    animation: pulse 4s infinite;
+}
+
+.hero-image-placeholder i {
+    color: var(--color-accent-blue);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.7); }
+    100% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+}
+
+/* ==================================== */
+/* 3. SOBRE MÍ (ABOUT) */
+/* ==================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.bio-text p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-secondary);
+}
+
+.bio-text strong {
+    color: var(--color-accent);
+}
+
+.quote {
+    font-style: italic;
+    color: var(--color-accent-amber);
+    border-left: 3px solid var(--color-accent-amber);
+    padding-left: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.purple-team-diagram {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--color-secondary-dark);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.purple-team-diagram p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.5rem;
+}
+
+.contact-info {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-info a {
+    color: var(--color-text-light);
+    font-weight: 600;
+    background-color: var(--color-secondary-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid var(--color-accent-blue);
+    transition: background-color var(--transition-speed);
+}
+
+.contact-info a i {
+    color: var(--color-accent-blue);
+    margin-right: 0.5rem;
+}
+
+.contact-info a:hover {
+    background-color: var(--color-accent-blue);
+    color: var(--color-primary-dark);
+}
+
+.disabled-link {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.disabled-link i {
+    color: var(--color-text-secondary) !important;
+}
+
+/* ==================================== */
+/* 4. HABILIDADES (SKILLS) */
+/* ==================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.skill-category {
+    background-color: var(--color-primary-dark);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border-left: 5px solid var(--color-accent);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.skill-category h4 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-accent-blue);
+}
+
+.skill-category h4 i {
+    margin-right: 0.5rem;
+}
+
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badge {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    background-color: rgba(0, 255, 136, 0.1);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.badge:hover {
+    background-color: rgba(0, 255, 136, 0.3);
+    transform: translateY(-2px);
+}
+
+.accent-red {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--color-accent-red);
+    border-color: var(--color-accent-red);
+}
+
+.accent-red:hover {
+    background-color: rgba(239, 68, 68, 0.3);
+}
+
+.accent-blue {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--color-accent-blue);
+    border-color: var(--color-accent-blue);
+}
+
+.accent-blue:hover {
+    background-color: rgba(59, 130, 246, 0.3);
+}
+
+/* ==================================== */
+/* 5. PROYECTOS (PROJECTS) */
+/* ==================================== */
+.project-filters {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.filter-btn {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-accent-blue);
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    font-family: var(--font-mono);
+}
+
+.filter-btn:hover {
+    background-color: var(--color-accent-blue);
+    color: var(--color-primary-dark);
+}
+
+.filter-btn.active {
+    background-color: var(--color-accent);
+    color: var(--color-primary-dark);
+    border-color: var(--color-accent);
+    font-weight: 700;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    background-color: var(--color-secondary-dark);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform var(--transition-speed), border-color var(--transition-speed);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+    box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+}
+
+.project-title {
+    color: var(--color-accent-blue);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.project-description {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+    min-height: 4.5rem; /* Altura fija para uniformidad */
+}
+
+.project-tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--spacing-sm);
+    min-height: 2rem;
+}
+
+.tech-badge {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 3px;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--color-accent-blue);
+}
+
+.repo-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.repo-link i {
+    margin-right: 0.5rem;
+}
+
+/* Ocultar proyectos filtrados */
+.project-card.hidden {
+    display: none;
+}
+
+/* ==================================== */
+/* 6. EXPERIENCIA Y EDUCACIÓN (CORREGIDO Y ALINEADO) */
+/* ==================================== */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0; /* Eliminamos el gap aquí, el espaciado lo dan los items */
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Línea vertical central */
+.timeline-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: var(--color-accent-blue);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    /* Usamos Flexbox para asegurar que la fecha y el contenido se centren verticalmente */
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; /* ESTA es la clave: centra verticalmente los hijos (date y content) */
+    position: relative;
+    padding: 1.5rem 0; /* Espaciado que separa los items */
+}
+
+/* Invertir la posición de algunos items para el layout de timeline */
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Contenido de la línea */
+.timeline-content {
+    width: 45%;
+    background-color: var(--color-primary-dark);
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    /* Damos espacio interno para que el contenido no choque con el centro */
+    padding-left: 1.5rem; 
+    padding-right: 1.5rem;
+}
+
+.timeline-date {
+    width: 45%;
+    font-family: var(--font-mono);
+    color: var(--color-accent-amber);
+    font-weight: 600;
+}
+
+/* Posiciones de la fecha */
+.timeline-item:nth-child(odd) .timeline-date {
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    text-align: left;
+    padding-left: 2rem;
+}
+
+
+/* Puntos en la línea (CORRECCIÓN CLAVE: Posicionar el punto en el centro de la línea) */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-secondary-dark);
+    border: 3px solid var(--color-accent);
+    border-radius: 50%;
+    z-index: 1;
+    left: 50%; /* Siempre centrado en la línea */
+    /* Este transform centra el punto exactamente sobre la línea vertical */
+    transform: translate(-50%, 0); 
+    top: 50%; /* ESTA es la segunda clave: centra el punto verticalmente en el item */
+    transform: translate(-50%, -50%); /* Centrar tanto horizontal como verticalmente */
+}
+
+.timeline-content h4 {
+    color: var(--color-accent);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content .institution {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content .job-description {
+    list-style: none;
+    padding-left: 0;
+    font-size: 0.9rem;
+}
+
+.timeline-content .job-description li::before {
+    content: "\203A"; /* Chevron Right */
+    color: var(--color-accent-amber);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.timeline-content .accent-amber {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: var(--color-accent-amber);
+    border: 1px solid var(--color-accent-amber);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------------------------- */
+/* AJUSTES RESPONSIVE PARA EL TIMELINE (mantener al lado izquierdo en móvil) */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Línea vertical izquierda en móvil */
+    .timeline-grid::before {
+        left: 20px; 
+        transform: none;
+    }
+
+    .timeline-item {
+        /* Desactivar la lógica de Flexbox centrada en móvil para ir a la izquierda */
+        display: block;
+        padding: 0 0 2rem 50px; /* Dejar espacio para la línea y el punto */
+        margin-left: 0; 
+    }
+    
+    .timeline-item:nth-child(even) {
+        flex-direction: row; /* Asegurar que no se invierta el orden */
+    }
+
+    .timeline-date {
+        width: auto;
+        font-size: 0.85rem;
+        position: absolute;
+        left: 50px;
+        top: 0;
+        text-align: left !important;
+        padding: 0;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-date {
+        padding-left: 0 !important;
+    }
+
+    .timeline-content {
+        width: 100%;
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+
+    /* Mover el punto al inicio de la línea izquierda */
+    .timeline-item::after {
+        left: 20px; /* Alineado con la nueva línea vertical */
+        top: 1.8rem; /* Ajuste para que se vea bien */
+        transform: translate(-50%, 0); /* Centrar solo horizontalmente en el nuevo punto */
+    }
+
+    .timeline-item:nth-child(odd) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-date {
+        text-align: left;
+        padding: 0;
+    }
+}
+
+/* ==================================== */
+/* 7. CONTACTO (CONTACT) */
+/* ==================================== */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-secondary-dark);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.contact-form p {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-accent-blue);
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+}
+
+.send-button {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    justify-content: center;
+}
+
+.contact-note {
+    margin-top: var(--spacing-md) !important;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary) !important;
+}
+
+.contact-link {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* ==================================== */
+/* 8. FOOTER */
+/* ==================================== */
+.main-footer {
+    background-color: var(--color-primary-dark);
+    padding: var(--spacing-sm) 0;
+    border-top: 3px dashed var(--color-accent-blue);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+}
+
+.footer-tagline {
+    font-family: var(--font-mono);
+    color: var(--color-accent-amber);
+}
+
+.footer-tagline i {
+    color: var(--color-accent);
+}
+
+.social-links {
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    color: var(--color-accent-blue);
+    transition: color var(--transition-speed);
+}
+
+.social-links a:hover {
+    color: var(--color-accent);
+}
+
+/* ==================================== */
+/* 9. MEDIA QUERIES (RESPONSIVE DESIGN) */
+/* ==================================== */
+
+/* Tablet y Menor */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: var(--spacing-lg);
+    }
+    
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text h2.typewriter {
+        font-size: 1.5rem;
+    }
+
+    .hero-image-placeholder {
+        margin-bottom: var(--spacing-md);
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .purple-team-diagram {
+        order: -1; /* Mover el diagrama encima en móviles */
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* NAV BAR MOBILE */
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-secondary-dark);
+        padding: var(--spacing-sm) 0;
+        border-top: 1px solid var(--color-accent);
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav a {
+        margin: 0;
+        padding: 0.75rem var(--spacing-md);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .main-nav a::after {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    /* EXPERIENCE TIMELINE MOBILE */
+    .timeline-grid::before {
+        left: 50%; /* Mantener la línea central por ahora */
+    }
+    
+    .timeline-item {
+        /* Usar 1fr para el contenido y 40px para la fecha */
+        grid-template-columns: 40px 1fr;
+        display: block;
+        padding: 0 0 2rem 0;
+        border-left: 2px solid var(--color-accent-blue);
+        margin-left: 50px;
+    }
+
+    .timeline-date {
+        position: absolute;
+        left: -10px;
+        top: 0;
+        width: auto;
+        padding: 0;
+        text-align: left;
+        transform: none;
+        font-size: 0.85rem;
+    }
+
+    .timeline-content {
+        width: 100%;
+        padding: 1rem;
+        margin-left: 10px;
+        margin-top: 1.5rem;
+    }
+    
+    /* Desactivar la lógica de flex-direction: row-reverse */
+    .timeline-item:nth-child(even) {
+        flex-direction: row;
+    }
+
+    /* Mover el punto al inicio de la línea */
+    .timeline-item::after {
+        left: -7px;
+    }
+    
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        right: auto;
+        left: -7px;
+        top: 0;
+    }
+
+    .timeline-item:nth-child(even) .timeline-date,
+    .timeline-item:nth-child(even) .timeline-content {
+        text-align: left;
+        padding: 0;
+    }
+}

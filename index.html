@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osmel Pillot Leyva | Ingeniero en Ciberseguridad (Purple Team)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container nav-content">
+            <a href="#hero" class="logo">
+                <i class="fas fa-shield-alt icon-accent"></i> Osmel Pillot Leyva
+            </a>
+            <nav class="main-nav" id="main-nav">
+                <a href="#about" class="nav-link" data-section="about">Sobre Mí</a>
+                <a href="#skills" class="nav-link" data-section="skills">Habilidades</a>
+                <a href="#projects" class="nav-link" data-section="projects">Proyectos</a>
+                <a href="#experience" class="nav-link" data-section="experience">Experiencia</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contacto</a>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <p class="greeting">¡Hola, soy</p>
+                    <h1>Osmel Pillot Leyva</h1>
+                    <h2 class="typewriter" data-text="Ingeniero en Ciberseguridad"></h2>
+                    <p class="tagline">Ofensiva y Defensiva en armonía para la seguridad integral.</p>
+                    <a href="#projects" class="cta-button">
+                        Ver Proyectos Destacados <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="hero-image-placeholder">
+                    <i class="fas fa-fingerprint fa-8x icon-accent"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section section-padding">
+            <div class="container about-content">
+                <h3 class="section-title"><i class="fas fa-user-secret"></i> Sobre Mí: Enfoque Purple Team</h3>
+                <div class="about-grid">
+                    <div class="bio-text">
+                        <p>"Ingeniero en Ciberseguridad con enfoque integral y experiencia tanto en técnicas ofensivas (Red Team) como defensivas (Blue Team). Mi visión **'Purple Team'** permite identificar vulnerabilidades mediante pentesting y hacking ético, y transformarlas en controles defensivos efectivos dentro de entornos SOC y administración de sistemas."</p>
+                        <p class="quote">La clave no está solo en encontrar el fallo, sino en asegurar que no vuelva a ocurrir.</p>
+                    </div>
+                    <div class="purple-team-diagram">
+                        
+                        <p class="diagram-caption">El Purple Team fusiona la mentalidad del atacante con la del defensor.</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:cos.eti.osmel@gmail.com"><i class="fas fa-envelope"></i> cos.eti.osmel@gmail.com</a>
+                    <a href="https://github.com/Osmel02" target="_blank"><i class="fab fa-github"></i> Osmel02 (GitHub)</a>
+                    <a href="https://www.linkedin.com/in/osmel-pillot-913019399" ><i class="fab fa-linkedin"></i> LinkedIn </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section section-padding section-alt-bg">
+            <div class="container">
+                <h3 class="section-title"><i class="fas fa-code-branch"></i> Habilidades Técnicas</h3>
+                
+                <div class="skills-grid">
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-language"></i> Lenguajes</h4>
+                        <div class="skill-badges">
+                            <span class="badge" data-tech="Python">Python</span>
+                            <span class="badge" data-tech="Bash">Bash</span>
+                            <span class="badge" data-tech="JavaScript">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-server"></i> Sistemas & Infraestructura</h4>
+                        <div class="skill-badges">
+                            <span class="badge" data-tech="Linux">Linux</span>
+                            <span class="badge" data-tech="Windows Server">Windows Server</span>
+                            <span class="badge" data-tech="Docker">Docker</span>
+                            <span class="badge" data-tech="Git">Git</span>
+                            <span class="badge" data-tech="Admin">Admin. de Sistemas</span>
+                            <span class="badge" data-tech="Hardening">Hardening</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4><i class="fas fa-skull-crossbones"></i> Seguridad Ofensiva (Red Team)</h4>
+                        <div class="skill-badges">
+                            <span class="badge accent-red" data-tech="Pentesting">Pentesting</span>
+                            <span class="badge accent-red" data-tech="RedTeam">Red Team</span>
+                            <span class="badge accent-red" data-tech="VulnerabilityAnalysis">Análisis de Vulnerabilidades</span>
+                            <span class="badge accent-red" data-tech="Kali">Kali Linux</span>
+                            <span class="badge accent-red" data-tech="Metasploit">Metasploit</span>
+                            <span class="badge accent-red" data-tech="Burp">Burp Suite</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4><i class="fas fa-lock"></i> Seguridad Defensiva (Blue Team)</h4>
+                        <div class="skill-badges">
+                            <span class="badge accent-blue" data-tech="SIEM">SIEM (Wazuh, Splunk)</span>
+                            <span class="badge accent-blue" data-tech="SOC">SOC</span>
+                            <span class="badge accent-blue" data-tech="ThreatDetection">Detección de Amenazas</span>
+                            <span class="badge accent-blue" data-tech="Wazuh">Wazuh</span>
+                            <span class="badge accent-blue" data-tech="TheHive">TheHive</span>
+                            <span class="badge accent-blue" data-tech="Cortex">Cortex</span>
+                            <span class="badge accent-blue" data-tech="MISP">MISP</span>
+                            <span class="badge accent-blue" data-tech="ModSecurity">ModSecurity</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4><i class="fas fa-robot"></i> Machine Learning (Detección)</h4>
+                        <div class="skill-badges">
+                            <span class="badge" data-tech="LightGBM">LightGBM</span>
+                            <span class="badge" data-tech="XGBoost">XGBoost</span>
+                            <span class="badge" data-tech="Scikit-learn">Scikit-learn</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section section-padding">
+            <div class="container">
+                <h3 class="section-title"><i class="fas fa-rocket"></i> Proyectos Destacados</h3>
+
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="siem">SIEM / SOC</button>
+                    <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                    <button class="filter-btn" data-filter="pentesting">Pentesting / Red Team</button>
+                </div>
+
+                <div class="projects-grid">
+                    
+                    <article class="project-card" data-category="siem">
+                        <h4 class="project-title">SIEM Open Source Integrado</h4>
+                        <p class="project-description">Implementación completa de stack SIEM con Wazuh (Log Collection, HIDS), TheHive (Manejo de Incidentes), Cortex (Análisis Observable) y MISP (Threat Intelligence).</p>
+                        <div class="project-tech-badges">
+                            <span class="tech-badge">Wazuh</span>
+                            <span class="tech-badge">TheHive</span>
+                            <span class="tech-badge">Cortex</span>
+                            <span class="tech-badge">MISP</span>
+                            <span class="tech-badge">Kali Linux</span>
+                            <span class="tech-badge">Docker</span>
+                        </div>
+                        <a href="[Enlace a repositorio relevante]" target="_blank" class="repo-link">
+                            <i class="fab fa-github"></i> Repositorio
+                        </a>
+                    </article>
+
+                    <article class="project-card" data-category="ml">
+                        <h4 class="project-title">WAF Inteligente: Detección SQLi con LightGBM</h4>
+                        <p class="project-description">Modelo LightGBM integrado en el WAF ModSecurity para bloquear Inyecciones SQL con alta precisión, reduciendo falsos positivos y logrando 100% efectividad en pruebas.</p>
+                        <div class="project-tech-badges">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">LightGBM</span>
+                            <span class="tech-badge">ModSecurity</span>
+                            <span class="tech-badge">SQLi</span>
+                        </div>
+                        <a href="[Enlace a repositorio]" target="_blank" class="repo-link">
+                            <i class="fab fa-github"></i> Repositorio
+                        </a>
+                    </article>
+
+                    <article class="project-card" data-category="ml">
+                        <h4 class="project-title">Extensión: Clasificador de Phishing</h4>
+                        <p class="project-description">Extensión de navegador que utiliza un modelo XGBoost entrenado para la detección en tiempo real de URLs maliciosas y phishing, alertando al usuario antes del acceso.</p>
+                        <div class="project-tech-badges">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">XGBoost</span>
+                            <span class="tech-badge">Extensión</span>
+                        </div>
+                        <a href="[Enlace a repositorio]" target="_blank" class="repo-link">
+                            <i class="fab fa-github"></i> Repositorio
+                        </a>
+                    </article>
+
+                    <article class="project-card" data-category="pentesting">
+                        <h4 class="project-title">Análisis de Malware (Estático & Dinámico)</h4>
+                        <p class="project-description">Colección de scripts y herramientas para automatizar el análisis estático y dinámico de muestras de malware, identificando IOCs y comportamiento.</p>
+                        <div class="project-tech-badges">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Bash</span>
+                            <span class="tech-badge">VMware</span>
+                        </div>
+                        <a href="https://github.com/Osmel02/malware-analysis-scripts" target="_blank" class="repo-link">
+                            <i class="fab fa-github"></i> Repositorio
+                        </a>
+                    </article>
+
+                    <article class="project-card" data-category="pentesting">
+                        <h4 class="project-title">Herramientas y Automatizaciones de Pentesting</h4>
+                        <p class="project-description">Scripts de automatización y utilidades personalizadas desarrolladas para agilizar tareas recurrentes en pruebas de penetración (Enumeración, Escaneo).</p>
+                        <div class="project-tech-badges">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Bash</span>
+                            <span class="tech-badge">Red Team</span>
+                        </div>
+                        <a href="https://github.com/Osmel02/pentesting-tools" target="_blank" class="repo-link">
+                            <i class="fab fa-github"></i> Repositorio
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section section-padding section-alt-bg">
+            <div class="container">
+                <h3 class="section-title"><i class="fas fa-history"></i> Trayectoria Profesional</h3>
+
+                <div class="timeline-grid">
+                    <div class="timeline-item education">
+                        <div class="timeline-date">Julio 2025</div>
+                        <div class="timeline-content">
+                            <h4>Ingeniero en Ciberseguridad</h4>
+                            <p class="institution">Universidad de las Ciencias Informáticas</p>
+                            <span class="badge accent-amber">Graduación</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item experience-job">
+                        <div class="timeline-date">Mayo 2025 - Actualidad</div>
+                        <div class="timeline-content">
+                            <h4>Analista SOC L1</h4>
+                            <p class="institution">ETI</p>
+                            <ul class="job-description">
+                                <li>Monitoreo de seguridad en tiempo real utilizando SIEM.</li>
+                                <li>Análisis de alertas y correlación de eventos (log4j, inyecciones, malware).</li>
+                                <li>Generación de reportes de incidentes y escalamiento a L2/L3.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <h3 class="section-title"><i class="fas fa-handshake"></i> Hablemos de Seguridad</h3>
+                
+                <form id="contact-form" class="contact-form">
+                    <p>Déjame un mensaje para discutir oportunidades o proyectos de seguridad.</p>
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button send-button">
+                        Enviar Mensaje <i class="fas fa-paper-plane"></i>
+                    </button>
+                    <p class="contact-note">
+                        O contáctame directamente: 
+                        <a href="mailto:cos.eti.osmel@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> cos.eti.osmel@gmail.com</a>
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 Osmel Pillot Leyva. Construido con <i class="fas fa-heart"></i> y Vanilla JS.</p>
+            <p class="footer-tagline">
+                <i class="fas fa-terminal"></i> Always learning, always securing. <i class="fas fa-lock-open"></i>
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/Osmel02" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/osmel-pillot-913019399" target="_blank" aria-label="LinkedIn" ><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
